@@ -7,40 +7,75 @@ namespace MyApp
     {
         static void Main(string[] args)
         {
-            Calculation add = new Addition(5, 3);
-            Console.WriteLine($"addition of 5+3: {add.Operatio(add.start, add.end)}");
-            Calculation sub = new Subtractio(5, 3);
-            Console.WriteLine($"Subtraction of 5-3: {sub.Operatio(sub.start, sub.end)}");
-            Calculation div = new Division(5, 3);
-            Console.WriteLine($"Division of 5/3: {div.Operatio(div.start, div.end)}");
-            Calculation mul = new Multi(5, 3);
-            Console.WriteLine($"Multiplication of 5*3: {mul.Operatio(mul.start, mul.end)}");
-            Calculation sr = new Squareroot(5);
-            Console.WriteLine($"Square root of 5: {sr.Operatio(sr.start)}");
-            Calculation mod = new Mode(5, 3);
-            Console.WriteLine($"modulo of 5%3: {mod.Operatio(mod.start, mod.end)}");
-            Calculation pow = new Power(5, 3);
-            Console.WriteLine($"Power of 5^3: {pow.Operatio(pow.start, pow.end)}");
-
-            // Calculation divv = new Division(5, 0);
-            // Console.WriteLine( divv.Operatio(divv.start, divv.end));
-            // Calculation srr = new Squareroot(-1);
-            // Console.WriteLine( srr.Operatio(srr.start));
-            // Calculation modd = new Mode(5, 0);
-            // Console.WriteLine(modd.Operatio(modd.start, modd.end));
-
+            while (true)
+            {
+                Console.WriteLine("Select the operation from the following list:");
+                Console.WriteLine("1 for addition");
+                Console.WriteLine("2 for Subtraction");
+                Console.WriteLine("3 for Multiplication");
+                Console.WriteLine("4 for Division");
+                Console.WriteLine("5 for Square root");
+                Console.WriteLine("6 for Modulo");
+                Console.WriteLine("7 for Power");
+                Console.WriteLine("8 to Exit");
+                double operation = Convert.ToDouble(Console.ReadLine());
+                if (operation == 8)
+                {
+                    break;
+                }
+                Console.WriteLine("Enter first number: ");
+                double num1 = Convert.ToDouble(Console.ReadLine());
+                double num2 = 0;
+                if (operation != 5)
+                {
+                    Console.WriteLine("Enter second number: ");
+                    num2 = Convert.ToDouble(Console.ReadLine());
+                }
+                switch (operation)
+                {
+                    case 1:
+                        Calculation add = new Addition(num1, num2);
+                        Console.WriteLine("Result of addition:" + add.Operatio(add.start, add.end));
+                        break;
+                    case 2:
+                        Calculation sub = new Subtractio(num1, num2);
+                        Console.WriteLine("Result of Subtraction:" + sub.Operatio(sub.start, sub.end));
+                        break;
+                    case 3:
+                        Calculation mul = new Multi(num1, num2);
+                        Console.WriteLine("Result of Multiplication:" + mul.Operatio(mul.start, mul.end));
+                        break;
+                    case 4:
+                        Calculation div = new Division(num1, num2);
+                        Console.WriteLine("Result of Division:" + div.Operatio(div.start, div.end));
+                        break;
+                    case 5:
+                        Calculation sr = new Squareroot(num1);
+                        Console.WriteLine("Result of Square root:" + sr.Operatio(sr.start));
+                        break;
+                    case 6:
+                        Calculation mod = new Mode(num1, num2);
+                        Console.WriteLine("Result of Modulo:" + mod.Operatio(mod.start, mod.end));
+                        break;
+                    case 7:
+                        Calculation pow = new Power(num1, num2);
+                        Console.WriteLine("Result of Power:" + pow.Operatio(pow.start, pow.end));
+                        break;
+                }
+                Console.WriteLine();
+            }
         }
     }
     public abstract class Calculation
     {
         public double start;
         public double end;
-        public Calculation(double start=0, double end=0)
+        public Calculation(double start = 0, double end = 0)
         {
             this.start = start;
             this.end = end;
         }
-        public abstract double Operatio(double start, double end=0);
+        public abstract double Operatio(double start, double end = 0);
     }
     public class Addition : Calculation
     {
@@ -54,7 +89,7 @@ namespace MyApp
     }
     public class Subtractio : Calculation
     {
-        public Subtractio(double start, int end) : base(start, end)
+        public Subtractio(double start, double end) : base(start, end)
         {
         }
         public override double Operatio(double start, double end)
@@ -112,17 +147,17 @@ namespace MyApp
     }
     public class Squareroot : Calculation
     {
-        public Squareroot(double start, double end=0) : base(start, end) { }
-        public override double Operatio(double start, double end=0)
+        public Squareroot(double start, double end = 0) : base(start, end) { }
+        public override double Operatio(double start, double end = 0)
         {
             if (start < 0)
             {
                 throw new ArgumentOutOfRangeException("squerroot cant be negative");
             }
             return Math.Sqrt(start);
-            
+
         }
 
     }
-    
+
 }
