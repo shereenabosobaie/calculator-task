@@ -36,12 +36,20 @@ namespace MyApp
                     break;
                 }
                 Console.WriteLine("Enter first number: ");
-                double num1 = Convert.ToDouble(Console.ReadLine());
+                if (!double.TryParse(Console.ReadLine(), out double num1))
+                {
+                    Console.WriteLine("Invalid input. Please enter a valid number.");
+                    continue;
+                }
                 double num2 = 0;
                 if (operation != 5)
                 {
                     Console.WriteLine("Enter second number: ");
-                    num2 = Convert.ToDouble(Console.ReadLine());
+                    if (!double.TryParse(Console.ReadLine(), out num2))
+                    {
+                        Console.WriteLine(" Invalid input. Please enter a valid number.");
+                        continue; 
+                    };
                 }
                 Calculation? cal = (operation) switch
                 {
@@ -55,7 +63,12 @@ namespace MyApp
                     _ => null
                 };
 
-                Console.WriteLine("Result of the oporation: " + cal.Operatio());
+                double result = cal.Operatio();
+                if (cal.Operatio() is double.NaN)
+                {
+                    continue;
+                }
+                else { Console.WriteLine("Result of the oporation: " + cal.Operatio()); }
 
                 Console.WriteLine();
             }

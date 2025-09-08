@@ -4,10 +4,13 @@ public class Division : Calculation
         { }
         public override double Operatio()
         {
-            if (end == 0.0)
-            {
-                throw new DivideByZeroException("Cannot divide by zero");
-            }
+        if (end == 0.0)
+        {
+           
+                Console.WriteLine("Division by zero is not allowed.");
+                return double.NaN;
+            
+        }
             return start / end;
         }
     }

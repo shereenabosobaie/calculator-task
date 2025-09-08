@@ -1,3 +1,5 @@
+using System.Linq.Expressions;
+
 public class Squareroot : Calculation
     {
         public Squareroot(double start, double end = 0) : base(start, end) { }
@@ -5,7 +7,9 @@ public class Squareroot : Calculation
         {
             if (start < 0)
             {
-                throw new ArgumentOutOfRangeException("squerroot cant be negative");
+                Console.WriteLine("squerroot cant be negative");
+                return double.NaN;
+            
             }
             return Math.Sqrt(start);
 

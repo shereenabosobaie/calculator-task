@@ -8,24 +8,31 @@
     "net9.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Shereen\\.nuget\\packages\\": {}
+    "C:\\Users\\Shereen\\.nuget\\packages\\": {},
+    "D:\\5\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\me\\cal\\MyCalculatorApp\\MyCalculatorApp.csproj",
+      "projectUniqueName": "d:\\me\\cal\\MyCalculatorApp\\MyCalculatorApp.csproj",
       "projectName": "MyCalculatorApp",
-      "projectPath": "D:\\me\\cal\\MyCalculatorApp\\MyCalculatorApp.csproj",
+      "projectPath": "d:\\me\\cal\\MyCalculatorApp\\MyCalculatorApp.csproj",
       "packagesPath": "C:\\Users\\Shereen\\.nuget\\packages\\",
-      "outputPath": "D:\\me\\cal\\MyCalculatorApp\\obj\\",
+      "outputPath": "d:\\me\\cal\\MyCalculatorApp\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "D:\\5\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Shereen\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Shereen\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
