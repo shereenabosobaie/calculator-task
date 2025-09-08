@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.Reflection;
 using System.Security.Cryptography.X509Certificates;
 
 namespace MyApp
@@ -48,10 +49,12 @@ namespace MyApp
                     if (!double.TryParse(Console.ReadLine(), out num2))
                     {
                         Console.WriteLine(" Invalid input. Please enter a valid number.");
-                        continue; 
-                    };
+                        continue;
+                    }
+                    ;
                 }
-                Calculation? cal = (operation) switch
+
+                Calculation cal = (operation) switch
                 {
                     1 => new Addition(num1, num2),
                     2 => new Subtractio(num1, num2),
@@ -60,15 +63,23 @@ namespace MyApp
                     5 => new Squareroot(num1),
                     6 => new Mode(num1, num2),
                     7 => new Power(num1, num2),
-                    _ => null
                 };
 
-                double result = cal.Operatio();
-                if (cal.Operatio() is double.NaN)
+                try
                 {
+                    double result = cal.Operatio();
+                    Console.WriteLine("Result of the operation: " + result);
+                }
+                catch (DivideByZeroException ex)
+                {
+                    Console.WriteLine("Error: " + ex.Message);
                     continue;
                 }
-                else { Console.WriteLine("Result of the oporation: " + cal.Operatio()); }
+                catch (ArgumentOutOfRangeException ex)
+                {
+                    Console.WriteLine("Error: " + ex.Message);
+                    continue;
+                }
 
                 Console.WriteLine();
             }

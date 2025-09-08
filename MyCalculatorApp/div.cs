@@ -1,16 +1,11 @@
 public class Division : Calculation
+{
+    public Division(double start, double end) : base(start, end)
+    { }
+    public override double Operatio()
     {
-        public Division(double start, double end) : base(start, end)
-        { }
-        public override double Operatio()
-        {
-        if (end == 0.0)
-        {
-           
-                Console.WriteLine("Division by zero is not allowed.");
-                return double.NaN;
-            
-        }
-            return start / end;
-        }
+        if (end == 0)
+        { throw new DivideByZeroException("Cannot divide by zero."); }
+        return start / end;
     }
+}
